@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to right top, #002f76, #005ea5, #008ec4, #00bdd4, #12ebd8);
+}
+
+form {
+    width:fit-content;
+    height: fit-content;
+    padding: 70px; /* Espacio alrededor del formulario */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.07);
+}

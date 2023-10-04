@@ -3,3 +3,4 @@ function saludo(){
     let resultado=("Hola de nuevo "+name);
     document.getElementById("imprimirSaludo").innerHTML=resultado;
 }
+

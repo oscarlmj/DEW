@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Saludando</title>
-    <link rel="stylesheet" href="./saludo.css">
-    <script src="./saludo.js"></script>
-    <link rel="stylesheet" href="./cssDEW.css">
-</head>
-<body>
-        <form action="saludo.html" method="post">
-            <label for="name">Nombre:</label>
-            <input type="text" id="fname"><br>
-            <button type="button" onclick="saludo()" target="_blank">Saludar</button>
-            <div id="imprimirSaludo"></div>
-        </form>
-</body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saludando</title>
+        <script src="saludo.js"></script>
+        <link rel="stylesheet" href="saludo.css">
+    </head>
+    <body>
+        <div class="borde">
+            <form action="saludo.html" method="post">
+                <label for=""><strong>Usuario o email</strong><br></label>
+                <input type="text" id="fname" placeholder="Introduce tu nombre"><br><br>
+                <label for=""><strong>Contraseña</strong><br></label>
+                <input type="password" id="pass" placeholder="Introduce tu contraseña"><br><br>
+                <input type="checkbox" id="rmb" name="remember" value="Recordar">
+                <label for=""><strong>Recordar informacion de inicio</strong></label><br><br>
+                <button type="button" onclick="saludo()">Iniciar</button><br><br>
+                <strong>
+                    <div id="imprimirSaludo"></div>
+                </strong>
+            </form>
+        </div>
+        
+    </body>
 </html>

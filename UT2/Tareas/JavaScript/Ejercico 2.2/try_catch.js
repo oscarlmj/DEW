@@ -1,3 +1,4 @@
 function mensaje(){
-    alert("Haz clic en Aceptar para continuar viendo la pagina, o Cancelar para volver a la pagina principal");
+    window.open('./try_catch2.html','_blank');
+    window.close();
 }

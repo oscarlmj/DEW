@@ -1,18 +1,24 @@
 function iniciar(){
-    window.close();
-    window.open('./try_catch2.html','_blank');
-    
-    alert("Hola");
-}
+    const resultado=confirm("Si desea ver la siguiente pagina haga click en Aceptar, si quiere seguir en esta haga click en Cancelar");
 
-try{
-    const confirm=confirm("Haga click en aceptar para seguir viendo la pagina");
-
-    if(confirm===false){
-        throw new Error("El usuario hizo click en cancelar");
+    try{
+        if(resultado)
+        {
+            alert("El usuario ha decidido ver la siguiente pagina");
+            window.close();
+            window.open('./try_catch2.html','_blank');
+        }
+        else
+            throw ("El usuario ha decidido quedarse en esta pagina");
+    }
+    catch(error)
+    {
+        alert(error);
     }
 }
-catch(error)
+
+function volver()
 {
-    console.error(error.message);
+    window.close();
+    window.open('./try_catch.html','_blank');
 }

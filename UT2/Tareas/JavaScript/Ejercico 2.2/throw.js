@@ -1,29 +1,15 @@
-
-
-function error()
+function numero()
 {
-    
-    let n=parseInt(document.getElementById("num").value);
+    let n=(document.getElementById("num").value);
     try
     {
-        if(n<5) throw "menor";
-        if(n>10) throw "mayor";
-        if(n=NaN) throw "NaN";
+        if(n<5) throw ("El numero debe ser mayor que 5 y menor que 10")
+        else if(n>10) throw ("El numero debe ser menor que 10 y mayor que 5")
+        else if(isNaN(n)) throw ("Debe introducir un numero");
+        else document.getElementById("imprimirResultado").innerHTML="Bien hecho";
     }
-    catch(err)
+    catch(error)
     {
-        if(err="menor")
-        {
-            document.getElementById("imprimirResultado").innerHTML="El numero es menor que 5";
-        }
-        if(err="mayor")
-        {
-            document.getElementById("imprimirResultado").innerHTML="El numero es mayor que 10";
-
-        }
-        if(err="NaN")
-        {
-            document.getElementById("imprimirResultado").innerHTML="No es un numero";
-        }
+        document.getElementById("imprimirResultado").innerHTML=error;
     }
 }

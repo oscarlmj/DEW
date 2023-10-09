@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to right, #04f5ff, #10e7f0, #17d9e1, #1bcbd2, #1ebdc4, #1badb3, #199da3, #168d93, #0f787d, #086367, #034f53, #003c3f);
+  background-image: linear-gradient(to right top, #0b00ff, #0040ff, #005eff, #2f77fe, #578df6, #509ffa, #56b0fa, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,31 +7,9 @@ body {
   margin: 0;
 }
 
-#menu {
-  border: 2px solid black;
-  max-width: 100%;
-  text-align: left;
-  padding: 10px;
-}
-
-.titulo {
-  justify-items:normal;
-  font-family: Averta;
-  margin-right: 10%;
-  padding: 10px;
-}
-
-ul.barra {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
-  max-width: 100%;
+h1 {
+  justify-items: normal;
+  font-family: 'Averta', sans-serif;
   padding: 10px;
 }
 
@@ -42,12 +20,24 @@ ul.barra {
   flex-direction: column;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Cambiado a una sola columna en pantallas pequeñas */
+  max-width: fit-content;
+  padding: 10px;
+}
+
 .grid-item {
-  color: #fff;
-  padding: 20px;
+  padding: 5px;
+}
+
+p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
 }
 
-p{
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

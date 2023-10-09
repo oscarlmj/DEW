@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Suma por comas</title> 
+<style type="text/css">
+	body {
+		background: #E2E2E2;
+	}
+    
+    #main {
+		width:500px;
+		background: gray;
+		color: white;
+		margin: 40px auto;
+		overflow: hidden;
+        font-family: Helvetica, Geneva, Arial, sans-serif;
+		border-radius: 5px;
+		-moz-box-shadow: 0 0 5px 5px #413D3D;
+		-webkit-box-shadow: 0 0 5px #413D3D;
+		box-shadow: 0 0 2px 2px #413D3D;
+		
+      }
+	  
+	.contenido {
+		padding: 25px;
+		margin: 0 auto;
+		text-align:right;
+		width:300px;
+	}
+	  h1 {
+		text-align:center;
+		background:#252525;
+		padding:5px;
+	}
+	input[type=text] {
+		width:200px;
+	}
+   
+</style>
+<script type="text/javascript"> 
+
+//sólo funciona en Internet explorer
+/*function validaNumerosComas(event) {
+			alert(event.keyCode);
+		if (((event.keyCode < 49) || (event.keyCode > 57)) && (event.keyCode != 44)) {
+				alert(event.keyCode);
+				event.returnValue = false;
+				alert(event.returnValue);
+				
+		}
+} 
+*/
+function validaNumerosComasPuntosGuion(event) {
+
+	
+	//event.keycode y event.wich para que funcione con todos los navegadores deprecate
+	//http://www.w3schools.com/jsref/event_key_keycode.asp deprecate
+	//let char = event.which || event.keyCode; //deprecate
+	
+	let char = event.Key; // nos devuelve el botón del teclado pulsado por el usuario	
+	alert(char);
+	//https://www.w3schools.com/jsref/event_key_key.asp IMPORTANTE
+	//https://unicode-table.com/es/#control-character
+	
+	//Pues keypres es el acto de presionar una tecla como para escribir una letra 
+	//y el keydown registra cuando la tecla "baja". 
+	//O sea si mantienes presionada Shift eso es un Keydown, si le das enter eso es un keypress
+
+    //keydown() – Se pulsa la tecla, comienzo de la presión.
+    //keypress() – La tecla está presionada.
+    //keyup() – La tecla es soltada.
+
+	
+	
+	if ((char < 44) || (char > 57)) {
+		event.returnValue = false;
+		alert("event.returnValue "+ event.returnValue);
+	}
+} 
+
+function suma() { 
+	let operacion = numeros.split(',').join('+');
+	alert(operacion);
+	let suma = eval(operacion);
+	alert(suma);
+	document.getElementById("suma").value=suma;
+}
+
+let numeros;
+function calcular() {
+numeros = document.getElementById("numeros").value;
+suma();
+}
+
+</script> 
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-eforma.js"></script></head> 
+
+<body> 
+<div id="main">
+<h1>Número de argumentos variables</h1>
+<div class="contenido">
+Números: <input type="text" id="numeros" onKeyPress="validaNumerosComasPuntosGuion(event)" /> 
+<br/>
+Suma: <input type="text" id="suma" /> 
+<br/><br/>
+<input type="button" onclick="calcular()" value="Realizar la suma" />
+</div>
+</body> 
+</html>

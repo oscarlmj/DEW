@@ -34,9 +34,16 @@ function resultado()
     comprobar(resultadoUsuario);
 
     if(comprobar(resultadoUsuario))
+    {
         document.getElementById("imprimirResultado").innerHTML="Correcto";
+        document.getElementById("form").style.backgroundColor="#00C896";
+    }
     else
+    {
         document.getElementById("imprimirResultado").innerHTML="Incorrecto";
+        document.getElementById("form").style.backgroundColor="#B90000";
+
+    }
 }
 
 /*Funcion que compara el dato introducido por el usuario y el resultado de la operación, devolviendo*/

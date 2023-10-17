@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to bottom, #232323, #384658, #28718b, #00a1ad, #00d1b4);  display:flex;
+  background-image: linear-gradient(to right top, #646464, #6a6a6a, #6f6f6f, #757575, #7b7b7b, #818181, #888888, #8e8e8e, #969696, #9e9e9e, #a6a6a6, #aeaeae);  display:flex;
   justify-content: center;
   align-items: center;
   height: 100vh;

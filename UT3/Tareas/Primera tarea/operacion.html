@@ -13,12 +13,12 @@
             <img src="../../../img/back.png" alt="" width="100" height="100">
         </a>
         <div class="borde">
-            <form action="operacion.html" method="post">
+            <form action="operacion.html" method="post" id="form">
                 <strong>
                     <div id="imprimirResultado"></div>
                 </strong>
-                <input type="text" placeholder="Introduce el resultado" id="resultadoUsuario">
-                <button type="button" onclick="resultado()">Iniciar</button><br><br>
+                <input type="text" value="Introduce el resultado" id="resultadoUsuario" onfocus="this.value=''" >
+                <button type="button" onclick="resultado()">Comprobar resultado</button><br><br>
                 <a href="./operacion.html">
                     <img src="../../../img/f5.png" alt="" width="40" height="40">
                 </a>

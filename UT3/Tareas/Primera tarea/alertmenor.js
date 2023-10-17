@@ -12,6 +12,7 @@ function alerta(n,n2)
     else
     {
         document.getElementById("imprimirResultado").innerHTML=n+n2;
+        document.getElementById("form").style.backgroundColor="#00C896";
     }
 }
 

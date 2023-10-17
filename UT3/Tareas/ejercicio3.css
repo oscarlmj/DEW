@@ -22,11 +22,16 @@ form {
 }
 
 button{
+    margin: auto;
+    display: block;
     border-radius: 10px;
     border: 0px solid;
+    margin-top: 20px;
 }
+
 a{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }

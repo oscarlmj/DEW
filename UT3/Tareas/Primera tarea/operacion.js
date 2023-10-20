@@ -41,7 +41,7 @@ function resultado()
     else
     {
         document.getElementById("imprimirResultado").innerHTML="Incorrecto";
-        document.getElementById("form").style.backgroundColor="#B90000";
+        document.getElementById("form").style.backgroundColor="#FA5858";
 
     }
 }

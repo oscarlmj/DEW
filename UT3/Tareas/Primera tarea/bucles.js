@@ -2,39 +2,40 @@ let coches=["Opel","Citroen","Renault","Seat"];
 coches.nuevo="Ferrari";
 
 function bucle1(){
+    document.getElementById("imprimirResultado").innerHTML=""+"<h3>Bucle for</h3><br>";
+    alert("El bucle for todo o parte del array dependiendo de lo que queramos, o las condiciones que le indiquemos.")
+
     for(let i=0;i<coches.length;i++)
     {
-        document.getElementById("imprimirResultado").innerHTML="";
-        document.getElementById("imprimirResultado").innerHTML+=coches[i]+", ";
+        document.getElementById("imprimirResultado").innerHTML+=coches[i]+"<br>";
     }
-    let explicacion="EL bucle for simple realiza las acciones indicadas la cantidad de veces determinadas segun la sintaxis dada, o hasta que se cumpla alguna condicion interna y haga un break"
-    document.getElementById("imprimirResultado").innerHTML+=explicacion;
 }
 
 function bucle2(){
-    coches.forEach((coche) => document.getElementById("imprimirResultado").innerHTML+=coche+", ")
+    document.getElementById("imprimirResultado").innerHTML=""+"<h3>Bucle for each</h3><br>";
+    alert("El for each ejecuta una funcion para cada elemento del array.")
 
-    let explicacion="El bucle for each realiza las acciones que indiquemos para cada uno de los elementos del array, sin necesidar de declarar un contador para las posiciones"
-    document.getElementById("imprimirResultado").innerHTML+=explicacion;
+    coches.forEach((coche) => document.getElementById("imprimirResultado").innerHTML+=coche+"<br>")
+
 
 }
 
 function bucle3(){
-    
+    document.getElementById("imprimirResultado").innerHTML=""+"<h3>Bucle for in</h3><br>";
+    alert("El for in, es parecido al for each, con el contra, o pro, depende del uso que queramos darle, de que hace uso de TODOS los datos del array, es decir, si añadimos un dato nuevo al array, tambien lo muestra.")
+
     for(const index in coches)
     {
-        document.getElementById("imprimirResultado").innerHTML+=(coches[index])+", ";
+        document.getElementById("imprimirResultado").innerHTML+=(coches[index])+"<br>";
     }
-
-    let explicacion="El bucle for in, es muy parecido al for each, con el contra de que busca TODOS los elementos del array, incluidos los que hayan sido añadidos posteriormente a la creación, como puede ser Ferrari en este caso"
-    document.getElementById("imprimirResultado").innerHTML+=explicacion;
-
 }
 
 function bucle4(){
-    for(const coche of coches)
-    {
-        document.getElementById("imprimirResutlado").innerHTML=coche;
+    document.getElementById("imprimirResultado").innerHTML=""+"<h3>Bucle for of</h3><br>";
+    alert("El for of tiene un funcionamiento parecido al del iterator de Java, guardando en una constante local el valor de la posicion en la que se encuentra en cada momento.")
+
+    for (const coche of coches) {
+        document.getElementById("imprimirResultado").innerHTML+=coche+"<br>";
     }
 }
 

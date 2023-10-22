@@ -9,3 +9,5 @@ result=0;
 alert(result);
 sum= addNumbers();
 alert(sum);
+window.close();
+window.open('./unidad3.1.html','_blank');

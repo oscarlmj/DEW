@@ -24,12 +24,24 @@ window.onload= function(){
     }
 }
 
+
+
 /*Se crea la variable que contiene el resultado indicado por el usuario*/
 let resultadoUsuario;
+
+/*Funcion que compara el dato introducido por el usuario y el resultado de la operación, devolviendo*/
+function comprobar(resultadoUsuario)
+{
+    if(resultadoUsuario==operacion)
+    return true;
+    else
+    return false;
+}
 
 /*Funcion que recoge el resultado introducido por el usuario y llama a la funcion comprobar() dandole como parametro dicho resultado*/
 function resultado()
 {
+
     resultadoUsuario=document.getElementById("resultadoUsuario").value;
     comprobar(resultadoUsuario);
 
@@ -44,13 +56,4 @@ function resultado()
         document.getElementById("form").style.backgroundColor="#FA5858";
 
     }
-}
-
-/*Funcion que compara el dato introducido por el usuario y el resultado de la operación, devolviendo*/
-function comprobar(resultadoUsuario)
-{
-    if(resultadoUsuario==operacion)
-    return true;
-    else
-    return false;
 }

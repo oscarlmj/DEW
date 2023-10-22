@@ -3,7 +3,7 @@ coches.nuevo="Ferrari";
 
 function bucle1(){
     document.getElementById("imprimirResultado").innerHTML=""+"<h3>Bucle for</h3><br>";
-    alert("El bucle for todo o parte del array dependiendo de lo que queramos, o las condiciones que le indiquemos.")
+    alert("El bucle for recorre todo o parte del array dependiendo de lo que queramos, o las condiciones que le indiquemos.")
 
     for(let i=0;i<coches.length;i++)
     {

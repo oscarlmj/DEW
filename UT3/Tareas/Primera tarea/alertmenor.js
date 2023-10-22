@@ -13,7 +13,7 @@ function alerta(n,n2)
         document.getElementById("form").style.backgroundColor="";
     
         alert("El primer parametro "+n+" es mayor que el segundo "+n2);
-            
+        location.reload();
     }
     else
     {

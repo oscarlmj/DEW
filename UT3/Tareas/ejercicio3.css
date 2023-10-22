@@ -161,3 +161,13 @@ section form {
   border-radius: 20px;
   width: 300px;
 }
+
+#cruz, #cara{
+display:flex;
+flex-direction: column;
+align-items: center;
+}
+
+#seleccionar{
+  display:flex;
+}

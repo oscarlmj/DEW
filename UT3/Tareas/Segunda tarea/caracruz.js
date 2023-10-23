@@ -8,7 +8,6 @@ Se controla que el usuario haya seleccionado una cara, monstrando un mensaje de 
 function lanzarMoneda() {
     try{
         if(moneda == null) throw new Error("Selecciona una moneda para poder jugar");
-        console.log("Has elegido "+moneda);
         let interval = setInterval(function(){
             cambiarMoneda();
         },150)
@@ -17,7 +16,7 @@ function lanzarMoneda() {
             clearInterval(interval);
             if(ganador()==moneda)
             {
-                alert("Felicidade maquina")
+                alert("Felicidades, has ganado")
             }
             else
             {
@@ -43,11 +42,11 @@ function ganador(){
     const random = Math.random();
 
     if (random < 0.5) {
-        console.log("Salio cara");
+        //console.log("Salio cara");
 
         return "cara";
     } else {
-        console.log("Salio cruz");
+        //console.log("Salio cruz");
         return "cruz";
     }
 

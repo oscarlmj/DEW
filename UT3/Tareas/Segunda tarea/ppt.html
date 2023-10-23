@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resulado opereación aritmética</title>
+        <link rel="stylesheet" href="../ejercicio3.css">
+        <script src="ppt.js">
+        </script>
+    </head>
+    <body>
+        <section>
+        <a href="../Segunda tarea/unidad3.2.html">
+            <img src="../../../img/back.png" alt="" width="50" height="50">
+        </a>
+            <div>
+                <input type="image" src="../../../img/papel.png" onclick="jugar()" id="jugada">
+                <h2>Selecciona una jugada</h2>
+            </div>
+            <div>
+                <div id="seleccionar">
+                    <div id="papel">
+                        <input id="papel" type="image" src="../../../img/papel.png" value="papel" width="100px" onclick="seleccionar(value)">
+                    </div>
+                    <div id="piedra">
+                        <input id="piedra" type="image" src="../../../img/piedra.png" value="piedra" width="100px" onclick="seleccionar(value)">
+                    </div>
+                    <div id="tijera">
+                        <input id="tijera" type="image" src="../../../img/tijera.png" value="tijera" width="100px" onclick="seleccionar(value)">
+                    </div>
+            </div>
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>
+        </section>
+    </body>
+</html>

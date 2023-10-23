@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resulado opereación aritmética</title>
         <link rel="stylesheet" href="../ejercicio3.css">
-        <script src="operacion.js">
+        <script src="caracruz.js">
         </script>
     </head>
     <body>
@@ -14,17 +14,16 @@
             <img src="../../../img/back.png" alt="" width="50" height="50">
         </a>
             <div>
-                <img src="../../../img/cara.png" alt="" id="moneda">
+                <input type="image" src="../../../img/cruz.png" onclick="lanzarMoneda()" id="moneda">
+                <h3>Selecciona una jugada</h3>
             </div>
             <div>
                 <div id="seleccionar">
                     <div id="cara">
-                        <img src="../../../img/cara.png" alt="cara" value="cara" width="150px">
-                        <button type="button" id="cara">Seleccionar cara</button>
+                        <input id="cara" type="image" src="../../../img/cara.png" value="cara" width="150px" onclick="seleccionar(value)">
                     </div>
                     <div id="cruz">
-                        <img src="../../../img/cruz.png" alt="cruz" value="cruz" width="150px">
-                        <button type="button" id="cruz">Seleccionar cruz</button>
+                        <input id="cara" type="image" src="../../../img/cruz.png" value="cruz" width="150px" onclick="seleccionar(value)">
                     </div>
             </div>
         <div class='air air1'></div>

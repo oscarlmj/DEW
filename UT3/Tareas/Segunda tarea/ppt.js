@@ -22,19 +22,20 @@ function jugar()
             clearInterval(interval);
             resultado=ganador();
             console.log("Ha salio "+resultado);
+
             switch(jugada)
             {
                 case "papel":
                     if(resultado=="piedra")
                     resultado="Enhorabuena";
                     else if(resultado=="tijera")
-                    resultado="Oh! Ka pasao";
+                    resultado="Pierdes contra tijera";
                     else
                     resultado="Papel no mata papel";
                     break;
                 case "piedra":
                     if(resultado=="papel")
-                    resultado="Oh! Ka pasao";
+                    resultado="Pìerdes contra papel";
                     else if(resultado=="tijera")
                     resultado="Enhorabuena";
                     else
@@ -42,14 +43,14 @@ function jugar()
                     break;
                 case "tijera":
                     if(resultado=="piedra")
-                    resultado="Oh! Ka pasao";
+                    resultado="Pierdes contra piedra";
                     else if(resultado=="papel")
                     resultado="Enhorabuena";
                     else
                     resultado="Tijera no mata tijera";
                     break;
             }   
-            alert(resultado);
+                    alert(resultado);
         },6000)
     }
     catch(Error)
@@ -62,6 +63,8 @@ function jugar()
 function ganador()
 {
     let random = Math.floor(Math.random() * 3) + 1;
+    let img = document.getElementById("jugada");
+
 
     if(random==1)
     {

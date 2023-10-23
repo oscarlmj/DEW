@@ -21,6 +21,13 @@ section h1 {
     max-height: fit-content;
     padding: 10px;
   }
+
+  textarea{
+    margin-top:15px;
+    border: 0px solid;
+    border-radius: 20px;
+    text-align: center;
+  }
     
   section .grid-item {
     padding: 5px;

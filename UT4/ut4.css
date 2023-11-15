@@ -1,0 +1,33 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+li{
+    list-style: none;
+}
+
+.letra{
+    height: 25px;
+    width: 30px;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    text-transform: uppercase;
+}
+
+div{
+    align-items: center;
+    margin: 20px;
+}

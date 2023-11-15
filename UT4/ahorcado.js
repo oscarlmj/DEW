@@ -1,38 +1,50 @@
 const palabrasRAE = ["sol", "luz", "amor", "tiempo", "espacio", "vida", "color", "sueño", "alegría", "paz", "libertad", "historia", "cultura", "lengua", "sociedad", "trabajo", "familia", "arte"];
 
 let palabra;
+let caracteres
 
 function darPalabra(){
-    palabra= palabrasRAE[Math.floor(Math.random() * palabrasRAE.length)];
-    return palabra;
+    return palabrasRAE[Math.floor(Math.random() * palabrasRAE.length)];
 }
 
-function jugar()
-{
-    darPalabra();
-    let espacios="";
+function jugar(){
+    palabra=darPalabra();
+    document.getElementById("jugador").disabled= false;
+    caracteres=Array.from(palabra);
+
     console.log(palabra);
-
-    for(let x=0;x<6;x++)
-    {
-        for (let i = 0; i < palabra.length; i++)    {
-            espacios+='<input type="text" class="letra" minlength="0" maxlength="1">';   
-        }
-        espacios+='<br>';
-    }
-    
-    document.getElementById("jugar").innerHTML = espacios;
+    pista();
 }
 
-function deshabilitar(){
-    let elementos=document.getElementsByClassName(".letra");
-    for(let i=0;i<elementos.length;i++)
-    {
-        elementos[i].disabled=true;
-    }
-}
-
-function comprobar()
+function pista()
 {
-    document.getElementsByName("letra").addEventListener('change', deshabilitar());
+    let espacios = [];  // Inicializa como un array vacío
+
+    let pista = caracteres[Math.floor(Math.random() * palabra.length)];
+    
+    for (let i = 0; i < palabra.length; i++) {
+        if (palabra[i] === pista) {
+            espacios.push('<td id="' + i + '" bgcolor="green">' + pista + '</td>');
+        } else {
+            espacios.push('<td id="' + i + '"></td>');
+        }
+    }
+
+    // Convierte el array en una cadena antes de asignarlo a innerHTML
+    document.getElementById("jugar").innerHTML = espacios.join('');
+}
+
+function comprobar(){
+    let caracter=document.getElementById("jugador").value;
+
+    let pos=caracteres.indexOf(caracter);
+    if(pos!=-1)
+    {
+        document.getElementById(pos).innerHTML=caracter;
+        document.getElementById(pos).style.backgroundColor="green";
+    }
+    else
+    {
+        document.getElementById("errores").innerHTML+='<td bgcolor="red">' + caracter + '</td>';
+    }
 }

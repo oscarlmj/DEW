@@ -16,11 +16,15 @@
             </ul>
         </nav>
         <main>
-        <input type="button" value="Jugar" onclick="jugar()">
-            <div id="jugar">
+            <input type="button" value="Iniciar" onclick="jugar()">
+            <input type="text" placeholder="Introduce una letra" maxlength="1"  id="jugador" disabled>
+                <div>
+                    <table id="jugar"></table>
+                    <br>
+                    <table id="errores"></table>
+                </div>
                 
-            </div>
-            <input type="button" value="Comprobar" onclick="deshabilitar()">
+                <input type="button" value="Comprobar" onclick="comprobar()">
         </main>
     </header>
 </body>

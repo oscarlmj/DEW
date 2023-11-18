@@ -22,7 +22,7 @@ div{
     margin: 20px;
 }
 
-#jugar td{
+#jugar td, #errores td{
     border: 2px solid black;
     width: 20px;
     height: 20px;
@@ -35,17 +35,8 @@ div{
     font-size: x-large;
 }
 
-#errores td{
+#errores{
     display: flex;
-    flex-direction: row;
-    border: 2px solid black;
-    width: 20px;
-    height: 20px;
-    padding: 10px;
-    margin: 8px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: bold;
-    font-size: x-large;
+    flex-direction: column;
 }
+

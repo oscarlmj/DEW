@@ -39,25 +39,32 @@ function pista()
 
 document.getElementById("jugador").addEventListener("keyup", function comprobar(){
     let caracter=document.getElementById("jugador").value;
-    let pos=caracteres.indexOf(caracter);
-    console.log(longitud);
+    let patron=new RegExp(caracter, 'g');
+    let contiene;
+
     if(errores.length<5)
     {
-        if(pos!=-1)
+        if(caracteres.indexOf(caracter)!==-1)
         {
-            document.getElementById(pos).innerHTML=caracter;
-            document.getElementById(pos).style.backgroundColor="green";
+            while((contiene = patron.exec(palabra))!== null)
+            {
+                console.log(`Encontrado "i" en la posición: ${contiene.index}`);
+                document.getElementById(contiene.index).innerHTML=caracter;
+                document.getElementById(contiene.index).style.backgroundColor="green";
+            }
+            document.getElementById("jugador").value="";
         }
         else
         {
+            console.log("Nosta");
             errores.unshift('<td bgcolor="red">' + caracter + '</td>');
             document.getElementById("errores").innerHTML=errores.join('');
-            console.log(errores);
+            document.getElementById("jugador").value="";
         }
-        document.getElementById("jugador").value="";
     }
-    else if(errores.length==5)
+    else
     {
-        //Codigo de derrota.
+        alert("Has perdio");
+        location.reload();
     }
 });

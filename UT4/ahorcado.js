@@ -1,9 +1,9 @@
 const palabrasRAE = ["sol", "luz", "amor", "tiempo", "espacio", "vida", "color", "sueño", "alegria", "paz", "libertad", "historia", "cultura", "lengua", "sociedad", "trabajo", "familia", "arte"];
-
 let palabra;
 let caracteres;
-let errores=[];
+const errores=[];
 let longitud;
+let aciertos=0;
 
 function darPalabra(){
     return palabrasRAE[Math.floor(Math.random() * palabrasRAE.length)];
@@ -37,34 +37,46 @@ function pista()
     document.getElementById("jugar").innerHTML = espacios.join('');
 }
 
-document.getElementById("jugador").addEventListener("keyup", function comprobar(){
-    let caracter=document.getElementById("jugador").value;
-    let patron=new RegExp(caracter, 'g');
-    let contiene;
-
-    if(errores.length<5)
-    {
-        if(caracteres.indexOf(caracter)!==-1)
+    document.getElementById("jugador").addEventListener("keyup", function comprobar(){
+        let caracter=document.getElementById("jugador").value;
+        let patron=new RegExp(caracter, 'g');
+        let contiene;
+    
+        if(caracter!=="")
         {
-            while((contiene = patron.exec(palabra))!== null)
+            if(errores.length<5)
             {
-                console.log(`Encontrado "i" en la posición: ${contiene.index}`);
-                document.getElementById(contiene.index).innerHTML=caracter;
-                document.getElementById(contiene.index).style.backgroundColor="green";
+                if(caracteres.indexOf(caracter)!==-1)
+                {
+                    while((contiene = patron.exec(palabra))!== null)
+                    {
+                        console.log(`Encontrado en la posición: ${contiene.index}`);
+                        document.getElementById(contiene.index).innerHTML=caracter;
+                        document.getElementById(contiene.index).style.backgroundColor="green";
+                        aciertos++;
+                    }
+                    document.getElementById("jugador").value="";
+                }
+                else
+                {
+                    console.log("No esta")
+                    if(errores.indexOf('<td bgcolor="red">' + caracter + '</td>')==-1)
+                    {            
+                        console.log(errores);
+    
+                        console.log(errores.indexOf(caracter))
+                        errores.push('<td bgcolor="red">' + caracter + '</td>');
+                        document.getElementById("errores").innerHTML=errores.join('');
+                        document.getElementById("jugador").value="";
+                    }
+                    else 
+                    alert("Ya has introducido ese valor")
+                }
             }
-            document.getElementById("jugador").value="";
+            else
+            {
+                alert("Has perdido");
+                location.reload();
+            }
         }
-        else
-        {
-            console.log("Nosta");
-            errores.unshift('<td bgcolor="red">' + caracter + '</td>');
-            document.getElementById("errores").innerHTML=errores.join('');
-            document.getElementById("jugador").value="";
-        }
-    }
-    else
-    {
-        alert("Has perdio");
-        location.reload();
-    }
-});
+    })

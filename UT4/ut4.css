@@ -40,3 +40,11 @@ div{
     flex-direction: column;
 }
 
+input[type=text]{
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}

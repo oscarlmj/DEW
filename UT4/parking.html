@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="parking.css">
+  <script src="parking.js"></script>
+  <title>Parking</title>
+</head>
+
+<body>
+    <header>  
+        <img src="./img/parking.svg" alt="">
+    </header>
+  <div class="container">
+        <label for="fechaHoraEntrada">Fecha y Hora de Entrada:</label>
+        <input type="datetime-local" id="fechaHoraEntrada">
+        <button onclick="calcularPrecio()">Calcular Precio</button>
+        <button onclick="reiniciar()">Reiniciar</button>
+        <p id="resultado"></p>
+        <a href="./index.html"><img src="./img/back.png" alt=""></a>
+  </div>
+</body>
+</html>

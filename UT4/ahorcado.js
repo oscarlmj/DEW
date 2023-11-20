@@ -3,23 +3,27 @@ let palabra;
 let caracteres;
 const errores=[];
 let longitud;
-let aciertos=0;
 let acertados=[];
+let fallos=[];
 
 function darPalabra(){
     return palabrasRAE[Math.floor(Math.random() * palabrasRAE.length)];
 }
 
 function jugar(){
-    palabra=darPalabra();
-    let jugada=document.getElementById("jugador");
-    jugada.disabled= false;
-    caracteres=Array.from(palabra);
-    longitud=palabra.length;
-    console.log(longitud);
-    
-    console.log(palabra);
-    pista();
+    if(palabra==null){
+        palabra=darPalabra();
+        let jugada=document.getElementById("jugador");
+        jugada.disabled= false;
+        caracteres=Array.from(palabra);
+        longitud=palabra.length;
+        console.log(longitud);
+        
+        console.log(palabra);
+        pista();
+    }
+    else
+    location.reload();
 }
 
 function pista()
@@ -40,78 +44,23 @@ function pista()
     document.getElementById("jugar").innerHTML = espacios.join('');
 }
 
-if(aciertos!==longitud)
-{
 
-    try {        
-        let caracter=document.getElementById("jugador").value;
+document.getElementById("jugador").addEventListener("keyup", function comprobar() {
+    let caracter = document.getElementById("jugador").value;
+    verificarCaracter(caracter);
 
-        if(!verificarCaracter(caracter))
-        {
-            throw new error ("Ya has introducido ese caracter");
-        }
-    } catch (error) {
-        alert(error);
+    if (acertados.length == longitud) {
+        setTimeout(function () {
+            alert("HAS GANADO MAQUINA");
+        }, 250); // Retraso de 1 segundo
+    } else if (errores.length == 6) {
+        setTimeout(function () {
+            alert("HAS PERDIDO");
+        }, 250); // Retraso de 1 segundo
     }
+});
 
-    document.getElementById("jugador").addEventListener("keyup", function comprobar(){
-        let caracter=document.getElementById("jugador").value;
-        let patron=new RegExp(caracter, 'g');
-        let contiene;
-    
-        if(caracter!=="")
-        {
-            console.log(errores.length)
-            if(errores.length<5)
-            {
-                if(caracteres.indexOf(caracter)!==-1)
-                {
-                    try{
-                        if(acertados.indexOf(caracter)==-1)
-                        {
-                            while((contiene = patron.exec(palabra))!== null)
-                            {
-                                acertados.push(caracter);
-                                console.log(`Encontrado en la posición: ${contiene.index}`);
-                                document.getElementById(contiene.index).innerHTML=caracter;
-                                document.getElementById(contiene.index).style.backgroundColor="green";
-                                aciertos++;
-                            }
-                            document.getElementById("jugador").value="";
-                        }
-                        else throw new Error("Ya has introducido ese valor")
-                    }
-                    catch(Error)
-                    {
-                        document.getElementById("jugador").value="";
-                        alert(Error);
-                    }
-                }
-                else
-                {
-                    console.log("No esta")
-                    if(errores.indexOf('<td bgcolor="red">' + caracter + '</td>')==-1)
-                    {   
-                        errores.push('<td bgcolor="red">' + caracter + '</td>');
-                        document.getElementById("errores").innerHTML=errores.join('');
-                        document.getElementById("jugador").value="";
-                        document.getElementById("ahorcado").src = "./img/" + errores.length + ".png";
-                    }
-                    else
-                    {
-                        alert("Ya has introducido ese valor")
-                        document.getElementById("jugador").value="";
-                    }
-                }
-            }
-            else
-            {
-                alert("Has perdido");
-                location.reload();
-            }
-        }
-    })
-}
+
 
 
 function verificarCaracter(caracter)
@@ -119,29 +68,32 @@ function verificarCaracter(caracter)
     let patron=new RegExp(caracter, 'g');
     let contiene;
 
-    try{
-        if(acertados.indexOf(caracter)==-1)
-        {
-            while((contiene = patron.exec(palabra))!== null)
+    if(caracter!=="")
+    {
+        try{
+            if(caracteres.indexOf(caracter)!==-1 && acertados.indexOf(caracter)==-1)
             {
-                acertados.push(caracter);
-                console.log(`Encontrado en la posición: ${contiene.index}`);
-                document.getElementById(contiene.index).innerHTML=caracter;
-                document.getElementById(contiene.index).style.backgroundColor="green";
-                aciertos++;
+                while((contiene = patron.exec(palabra))!== null)
+                {
+                    acertados.push(caracter);
+                    console.log(`Encontrado en la posición: ${contiene.index}`);
+                    document.getElementById(contiene.index).innerHTML=caracter;
+                    document.getElementById(contiene.index).style.backgroundColor="green";
+                }
+                document.getElementById("jugador").value="";
             }
+            else if(fallos.indexOf(caracter)==-1 && acertados.indexOf(caracter)==-1)
+            {   fallos.push(caracter);
+                errores.push('<td bgcolor="red">' + caracter + '</td>');
+                document.getElementById("errores").innerHTML=errores.join('');
+                document.getElementById("jugador").value="";
+                document.getElementById("ahorcado").src = "./img/" + errores.length + ".png";
+            }
+            else throw new Error("Ya has introducido ese caracter");
+        }
+        catch(Error){
+            alert(Error);
             document.getElementById("jugador").value="";
         }
-        else if(errores.indexOf('<td bgcolor="red">' + caracter + '</td>')==-1)
-        {   
-            errores.push('<td bgcolor="red">' + caracter + '</td>');
-            document.getElementById("errores").innerHTML=errores.join('');
-            document.getElementById("jugador").value="";
-            document.getElementById("ahorcado").src = "./img/" + errores.length + ".png";
-        }
-        else throw new error("Ya has introducido ese caracter");
-    }
-    catch(error){
-        alert(error);
     }
 }

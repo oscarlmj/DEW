@@ -3,45 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./tarjeta.css">
     <script src="./tarjeta.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <section class="tarjetas">
-        <label for="visa">
-            <input type="radio" name="card" id="visa" value="visa">
-            Visa
-        </label>
-        <label for="mastercard">
-            <input type="radio" name="card" id="mastercard" value="mastercard">
-            Mastercard
-        </label>    
-        <label for="cabal">
-            <input type="radio" name="card" id="cabal" value="cabal">
-            Cabal
-        </label>
-        <label for="amex">
-            <input type="radio" name="card" id="amex" value="amex">
-            Amex
-        </label>
-        <label for="naranja">
-            <input type="radio" name="card" id="naranja" value="naranja">
-            Naranja
-        </label>
-    </section>
-
-    <label for="">
-        Numero de tarjeta
-        <input type="text" name="usuario" id="card">
-    </label>
-
-    <label for="">
-        CVV
-        <input type="text" name="cvv" id="cvv">
-    </label>
-        
-
-        <input type="button" value="Validar" onclick="validarTarjeta()">
-    </form>
+    <div>
+        <form action="">
+        <section class="tarjetas">
+            <label for="visa">
+                <input type="radio" name="card" id="visa" value="visa">
+                Visa
+            </label>
+            <label for="mastercard">
+                <input type="radio" name="card" id="mastercard" value="mastercard">
+                Mastercard
+            </label>    
+            <label for="cabal">
+                <input type="radio" name="card" id="cabal" value="cabal">
+                Cabal
+            </label>
+            <label for="amex">
+                <input type="radio" name="card" id="amex" value="amex">
+                Amex
+            </label>
+            <label for="naranja">
+                <input type="radio" name="card" id="naranja" value="naranja">
+                Naranja
+            </label>
+        </section>
+    
+        <section class="datos">
+            <label for="">
+                Numero de tarjeta
+                <input type="text" name="usuario" id="card">
+            </label>
+            <label for="">
+                CVV
+                <input type="text" name="cvv" id="cvv">
+            </label>
+            <input type="button" value="Validar" onclick="validarTarjeta()">
+        </section>
+        </form>
+    
+    </div>
 </body>
 </html>

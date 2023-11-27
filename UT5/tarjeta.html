@@ -13,23 +13,23 @@
         <section class="tarjetas">
             <label for="visa">
                 <input type="radio" name="card" id="visa" value="visa">
-                Visa
+                <img src="./img/visa.webp" alt="">
             </label>
             <label for="mastercard">
                 <input type="radio" name="card" id="mastercard" value="mastercard">
-                Mastercard
+                <img src="./img/master.webp" alt="">
             </label>    
             <label for="cabal">
                 <input type="radio" name="card" id="cabal" value="cabal">
-                Cabal
+                <img src="./img/cabal.png" alt="">
             </label>
             <label for="amex">
                 <input type="radio" name="card" id="amex" value="amex">
-                Amex
+                <img src="./img/amex.png" alt="" id="amex">
             </label>
             <label for="naranja">
                 <input type="radio" name="card" id="naranja" value="naranja">
-                Naranja
+                <img src="./img/naranja.png" alt="">
             </label>
         </section>
     
@@ -37,12 +37,14 @@
             <label for="">
                 Numero de tarjeta
                 <input type="text" name="usuario" id="card">
+                <p id="cardpat"></p>
             </label>
             <label for="">
                 CVV
                 <input type="text" name="cvv" id="cvv">
             </label>
-            <input type="button" value="Validar" onclick="validarTarjeta()">
+            <p id="cvverror"></p>
+            <input type="button" value="Validar" onclick="validar()">
         </section>
         </form>
     

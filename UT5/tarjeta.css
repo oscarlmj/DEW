@@ -35,8 +35,7 @@ form{
     display: flex;
 }
 
-.id.datos{
-}
+
 
 form input[type="button"]
 {
@@ -48,4 +47,8 @@ form input[type="button"]
     margin-top: 30px;
     align-self: center;
     font-weight: bold;
+}
+
+form img{
+    width: 45px;
 }

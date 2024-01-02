@@ -2,65 +2,114 @@ const objeto= {
     "visa": /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
     "mastercard": /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
     "amex": /^3[47][0-9-]{16}$/,
-    "cabal": /^(6042|6043|6044|6045|6046|5896){4}[0-9]{12}$/,
+    "cabal": /^604[23][0-9]{2}$/,
     "naranja": /^(589562|402917|402918|527571|527572|0377798|0377799)[0-9]*$/
 }
 
-function validar()
-{
-    let usuario=document.getElementById("card").value;    
-    let cvv=document.getElementById("cvv").value;
+//Numeros
+//Visa 4000-0000-0000-0000
+//Mastercard 5000-0000-0000-0000
+//Amex 341111212121212121
+//Cabal 604200
+//Naranja 5275721
 
-    try {
-        if(validarNumero())
-        {
-
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
+let cvv=document.getElementById("cvv");
 
 function validarNumero(){
-    let usuario=document.getElementById("card").value;    
+    document.getElementById("carderror").innerHTML="";
+    let tarjeta=document.getElementById("card").value;    
     let cvv=document.getElementById("cvv");
+    let valida=false;
 
     try {
-        if(usuario!== "")
+        if(tarjeta!== "")
         {
             for(let card in objeto)
             {   
                 let tipo=objeto[card];
 
-                if(tipo.test(usuario))
+                if(tipo.test(tarjeta))
                 {
+                    valida=true;
                     console.log("Esta tarjeta es una "+card);
                     document.getElementById(card).checked=true;
 
-                    if(card==="amex")
-                    {
-                        cvv.placeholder="XXXX";
-                        validarCVV(card);
-                    }
-                    else
-                    {
-                        document.getElementById("cvv").placeholder="XXX";
-                        validarCVV(card);
+                    try {
+                        if(cvv!="")
+                        {
+                            if(card=="amex")
+                            {
+                                cvv.placeholder="XXXX";
+                                if(validarCVV()&&validarFecha())
+                                document.getElementById("correcto").innerHTML="Validacion correcta";
+                            }
+                            else
+                            {
+                                cvv.placeholder="XXX";
+                                if(validarCVV()&&validarFecha())
+                                document.getElementById("correcto").innerHTML="Validacion correcta";
+                            }
+                        }
+                        else
+                        throw new Error("Este campo es obligatorio");
+                    } catch (error) {
+                        
                     }
                 }
             }
+
+            if(valida==false)
+            throw new Error("Ese número de tarjeta no es valido");
+
         }
         else throw new Error("Por favor introduce un número de tarjeta");
     } catch (error) {
-        alert(error);
+        document.getElementById("carderror").innerHTML+=error.message;
     }
 }
 
-function validarCVV(tarjeta)
-{
-    let longitud=objeto[tarjeta].length;
-    let cvv=document.getElementById("cvv");
+function validarCVV() {
+    let cvvInput = document.getElementById("cvv");
+    let cvvLength = cvvInput.value.length;
+    let cvvPlaceholderLength = cvvInput.placeholder.length;
+    document.getElementById("cvverror").innerHTML="";
 
-    
+    try {
+        if(cvvInput.value!="")
+        {
+            if (cvvLength !== cvvPlaceholderLength) {
+                throw new Error("Introduce un CVV correcto");
+            }
+            else
+            return true;
+        }
+        else
+        throw new Error("Este campo es obligatorio");
+    } catch (error) {
+        document.getElementById("cvverror").innerHTML+=error.message;
+    }
+}
+
+function validarFecha() {
+    let mesInput = document.getElementById("mes");
+    let anoInput = document.getElementById("ano");
+    document.getElementById("fechaerror").innerHTML = "";
+
+    try {
+        if (mesInput.value !== "" && anoInput.value !== "") {
+            let mesActual = new Date().getMonth() + 1; // Se suma 1 ya que los meses van de 0 a 11
+            let anoActual = new Date().getFullYear();
+            
+            if (parseInt(anoInput.value) < anoActual ||
+                (parseInt(anoInput.value) === anoActual && parseInt(mesInput.value) < mesActual)) {
+                throw new Error("La tarjeta ha vencido. Por favor, utiliza una tarjeta válida.");
+            } else {
+                return true;
+            }
+        } else {
+            throw new Error("Por favor, completa tanto el mes como el año de vencimiento.");
+        }
+    } catch (error) {
+        document.getElementById("fechaerror").innerHTML += error.message;
+    }
 }

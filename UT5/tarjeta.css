@@ -1,54 +1,104 @@
-body{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-div{
-    display: flex;
-    justify-content: center;
+div {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
     padding: 20px;
-    margin: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"]
-{
-    border:none;
-    border-bottom: 2px solid black;
-}
-
-.tarjetas, .datos{
+form {
     display: flex;
     flex-direction: column;
 }
 
-.tarjetas label{
-    font-weight: bold;
-    padding: 5px
+.tarjetas {
+    display: flex;
+    justify-content: space-around;
 }
 
-form{
-    border: 2px solid black;
+.tarjetas label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+}
+
+.tarjetas img {
+    max-width: 45px;
+    margin-top: 10px;
 }
 
 .datos{
-    margin-top: 20px;
     display: flex;
+    flex-direction: column;
+}
+.datos label {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
+.datos input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
 
+#carderror, #cvverror, #fechaerror{
+    color: red;
+    margin-top: 5px;
+}
 
-form input[type="button"]
-{
-    width: 70px;
-    height: 30px;
+#fechaerror{
+    text-align: center;
+}
+input[type="button"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
     border: none;
-    background-color:darkcyan;
-    border-radius: 20px;
-    margin-top: 30px;
-    align-self: center;
-    font-weight: bold;
+    cursor: pointer;
 }
 
-form img{
-    width: 45px;
+input[type="button"]:hover {
+    background-color: #45a049;
+}
+
+#cvv{
+    width: 25%;
+}
+
+#fecha{
+    width: 35%;
+}
+
+.fecha-vencimiento{
+    width: 500px;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    margin-bottom: 5px;
+}
+#mes, #ano{
+    width: 100px;
+    margin: 0;
+    margin-left: 20px;
+}
+
+input[type="text"]{
+    text-align: center;
+}
+
+#correcto{
+    color: green;
+    box-shadow: none;
 }

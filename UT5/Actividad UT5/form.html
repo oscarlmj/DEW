@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <script src="./form.js"></script>
+    <title>Prieba de formulario</title>
+</head>
+<body>
+    <h3>Validaciones de un Formulario</h3>
+        <form action="">
+            <section>
+                <label for="">Nombre:<input type="text" name="nombre" id="nombre"></label>
+                <label for="">Apellido 1:<input type="text" name="apellido1" id="apellido1"></label>
+                <label for="">Edad:<input type="number" name="edad" id="edad" value="18" min="18" max="120"></label>
+                <label for="">Matricula:<input type="text" name="matricula" id="matricula"></label>
+                <label for="">Nº de Tarjeta:<input type="text" name="card" id="card"></label>
+                <label for="">Mes de Expiración:<input type="text" name="mes" id="mes" placeholder="1"></label>   
+            </section>
+
+            <section>
+                <label for="">Nº de Expediente:<input type="number" name="exp" id="exp" min="340000000000" max="349999999999" value="340000000000"></label>
+                <label for="">Apellido 2:<input type="text" name="apellido2" id="apellido2"></label>
+                <label for="">Fecha de Permiso:<input type="date" name="fecha" id="fecha"></label>
+                <label for="">Importe:<input type="text" name="importe" id="importe"></label>
+                <label for="">Tipo de tarjeta:
+                    <select name="" id="">
+                        <option value="Generica">Generica</option>
+                        <option value="American Express">American Express</option>
+                        <option value="Diner`s Club">Diner`s Club</option>
+                        <option value="Master Card">Master Card</option>
+                        <option value="Visa">Visa</option>
+                    </select>
+                </label>
+                <label for="">Año de Expiración: <input type="text" name="año" id="año" placeholder="2001"></label>    
+            </section>
+        <input type="button" value="Validar Formulario" onclick="validarForm()">
+
+        </form>
+        <span id="error"></span>
+</body>
+</html>

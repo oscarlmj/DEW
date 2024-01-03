@@ -9,34 +9,96 @@
 </head>
 <body>
     <h3>Validaciones de un Formulario</h3>
-        <form action="">
-            <section>
-                <label for="">Nombre:<input type="text" name="nombre" id="nombre"></label>
-                <label for="">Apellido 1:<input type="text" name="apellido1" id="apellido1"></label>
-                <label for="">Edad:<input type="number" name="edad" id="edad" value="18" min="18" max="120"></label>
-                <label for="">Matricula:<input type="text" name="matricula" id="matricula"></label>
-                <label for="">Nº de Tarjeta:<input type="text" name="card" id="card"></label>
-                <label for="">Mes de Expiración:<input type="text" name="mes" id="mes" placeholder="1"></label>   
-            </section>
-
-            <section>
-                <label for="">Nº de Expediente:<input type="number" name="exp" id="exp" min="340000000000" max="349999999999" value="340000000000"></label>
-                <label for="">Apellido 2:<input type="text" name="apellido2" id="apellido2"></label>
-                <label for="">Fecha de Permiso:<input type="date" name="fecha" id="fecha"></label>
-                <label for="">Importe:<input type="text" name="importe" id="importe"></label>
-                <label for="">Tipo de tarjeta:
-                    <select name="" id="">
-                        <option value="Generica">Generica</option>
-                        <option value="American Express">American Express</option>
-                        <option value="Diner`s Club">Diner`s Club</option>
-                        <option value="Master Card">Master Card</option>
-                        <option value="Visa">Visa</option>
-                    </select>
-                </label>
-                <label for="">Año de Expiración: <input type="text" name="año" id="año" placeholder="2001"></label>    
-            </section>
-        <input type="button" value="Validar Formulario" onclick="validarForm()">
-
+        <form action="" id="formularioMatricula">
+            <table>
+                <tr>
+                    <th>
+                        <label for="nombre">Nombre:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="nombre" id="nombre">
+                    </th>
+                    <th>
+                        <label for="expediente">Nº de Expediente:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="expediente" id="expediente">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="apellido1">Apellido 1:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="apellido1" id="apellido1">
+                    </th>
+                    <th>
+                        <label for="apellido2">Apellido 2:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="apellido2" id="apellido2">
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="edad">Edad:</label></th>
+                    <th>
+                        <input type="number" name="edad" id="edad">
+                    </th>
+                    <th>
+                        <label for="fecha">Fecha de Permiso:</label>
+                    </th>
+                    <th>
+                        <input type="date" name="fecha" id="fecha">
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="matricula">Matricula:</label></th>
+                    <th>
+                        <input type="text" name="matricula" id="matricula">
+                    </th>
+                    <th>
+                        <label for="importe">Importe:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="importe" id="importe">
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="tarjeta">Nº de Tarjeta:</label></th>
+                    <th>
+                        <input type="text" name="tarjeta" id="tarjeta">
+                    </th>
+                    <th>
+                        <label for="tipo">Tipo de tarjeta:</label>
+                    </th>
+                    <th>
+                        <select name="tipo" id="tipo">
+                            <option value="generico">Generico</option>
+                            <option value="american">American Express</option>
+                            <option value="diners">Diner`s Club</option>
+                            <option value="master">Master Card</option>
+                            <option value="visa">Visa</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th><label for="mes">Mes de Expiracion:</label></th>
+                    <th>
+                        <input type="text" name="mes" id="mes">
+                    </th>
+                    <th>
+                        <label for="año">Año de expiracion:</label>
+                    </th>
+                    <th>
+                        <input type="text" name="año" id="año">
+                    </th>
+                </tr>
+                <tr id="button">
+                    <th>
+                        <input type="button" value="Validar Formulario" onclick="validarFormulario()">
+                    </th>
+                </tr>
+            </table>
         </form>
         <span id="error"></span>
 </body>

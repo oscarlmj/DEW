@@ -1,3 +1,11 @@
+const objeto= {
+  "generica": /^[0-9]{13,19}$/,
+  "visa": /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
+  "mastercard": /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
+  "amex": /^3[47][0-9-]{16}$/,
+  "diners": /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/
+}
+
 function validarFormulario() {
     // Obtener todos los elementos de formulario
     var form = document.getElementById("formularioMatricula");
@@ -21,27 +29,11 @@ function validarFormulario() {
     }
   
     // Si todos los campos son válidos, realizar alguna acción
-    if (esValido) {
-      alert("Formulario válido. Puedes realizar alguna acción aquí.");
+    if (esValido)
       // Puedes enviar el formulario o realizar otras acciones aquí
-      if(validarNombreApellido())
-      {
-        alert("Nombre correcto");
-        if(validarExpediente())
-        {
-          alert("Numero de expediente correcto");
-          if(validarEdad())
-          {
-            alert("Edad correcta");
-            if(validarFecha())
-            {
-              alert("Fecha correcta");
-            }
-          }
-        }
-      }
+      if(validarEdad() && validarExpediente() && validarFecha && validarNombreApellido() && validarImporte() && validarAño() && validarMes())
+        alert("Formulario válido. Puedes realizar alguna acción aquí.");
     }
-  }
 
   function validarNombreApellido(){
     let nombre= document.getElementById("nombre").value.trim();
@@ -111,3 +103,75 @@ function validarFormulario() {
 
     return esValido;
   }
+
+  function validarImporte()
+  {
+    let importe = document.getElementById("importe").value.trim();
+    let numeros = /^\d+$/;
+    let esValido = true;
+
+    if(!numeros.test(importe))
+    {
+      esValido = false;
+      alert("Por favor introduzca correctamente el importe");
+    }
+
+      return esValido;
+  }
+
+  function validarMes(){
+    let mes = document.getElementById("mes").value.trim();
+    let esValido = true;
+
+    if(mes<1 || mes>12)
+    {
+      esValido = false;
+      alert("Introduzca correctamente el mes de expiración(1-12)");
+    }
+
+    return esValido;
+  }
+
+  function validarAño(){
+    let anio = document.getElementById("año").value.trim();
+    let esValido = true;
+
+    if(mes<2001 || mes>2100)
+    {
+      esValido = false;
+      alert("Introduzca correctamente el año de expiración(1-12)");
+    }
+
+    return esValido;
+  }
+
+
+  function validarTarjeta(){
+    let tarjeta=document.getElementById("tarjeta").value;    
+    let cvv=document.getElementById("cvv");
+    let esValido = false;
+
+    try {
+        if(tarjeta!== "")
+        {
+            for(let card in objeto)
+            {   
+                let tipo=objeto[card];
+
+                if(tipo.test(tarjeta))
+                {
+                    valida=true;
+                    console.log("Esta tarjeta es una "+tarjeta);
+                    document.getElementById(tarjeta).checked=true;
+                }
+            }
+
+            if(valida==false)
+            throw new Error("Ese número de tarjeta no es valido");
+
+        }
+        else throw new Error("Por favor introduce un número de tarjeta");
+    } catch (error) {
+        document.getElementById("carderror").innerHTML+=error.message;
+    }
+}

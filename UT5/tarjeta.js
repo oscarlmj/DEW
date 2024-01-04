@@ -1,4 +1,4 @@
-const objeto= {
+const tarjetas= {
     "visa": /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
     "mastercard": /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
     "amex": /^3[47][0-9-]{16}$/,
@@ -18,43 +18,24 @@ let cvv=document.getElementById("cvv");
 function validarNumero(){
     document.getElementById("carderror").innerHTML="";
     let tarjeta=document.getElementById("card").value;    
-    let cvv=document.getElementById("cvv");
-    let valida=false;
+    let tarjetaUsuario = document.getElementById("tipo").value;
+    let valida=true;
 
     try {
         if(tarjeta!== "")
         {
-            for(let card in objeto)
-            {   
-                let tipo=objeto[card];
+            for(let card in tarjetas)
+            {
+                let tipo=tarjetas[card];
 
                 if(tipo.test(tarjeta))
                 {
-                    valida=true;
+                    if(card !== tarjetaUsuario)
+                    {
+                        valida = false;
+                    }
                     console.log("Esta tarjeta es una "+card);
                     document.getElementById(card).checked=true;
-
-                    try {
-                        if(cvv!="")
-                        {
-                            if(card=="amex")
-                            {
-                                cvv.placeholder="XXXX";
-                                if(validarCVV()&&validarFecha())
-                                document.getElementById("correcto").innerHTML="Validacion correcta";
-                            }
-                            else
-                            {
-                                cvv.placeholder="XXX";
-                                if(validarCVV()&&validarFecha())
-                                document.getElementById("correcto").innerHTML="Validacion correcta";
-                            }
-                        }
-                        else
-                        throw new Error("Este campo es obligatorio");
-                    } catch (error) {
-                        
-                    }
                 }
             }
 

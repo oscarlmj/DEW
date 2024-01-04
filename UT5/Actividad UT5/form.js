@@ -1,5 +1,4 @@
 const objeto= {
-  "generica": /^[0-9]{13,19}$/,
   "visa": /^4[0-9]{3}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
   "mastercard": /^5[1-5][0-9]{2}-?[0-9]{4}-?[0-9]{4}-?[0-9]{4}$/,
   "amex": /^3[47][0-9-]{16}$/,
@@ -31,8 +30,10 @@ function validarFormulario() {
     // Si todos los campos son válidos, realizar alguna acción
     if (esValido)
       // Puedes enviar el formulario o realizar otras acciones aquí
-      if(validarEdad() && validarExpediente() && validarFecha && validarNombreApellido() && validarImporte() && validarAño() && validarMes())
+      if(validarEdad() && validarExpediente() && validarFecha && validarNombreApellido() && validarImporte() && validarAño() && validarMes() && validarTarjeta())
         alert("Formulario válido. Puedes realizar alguna acción aquí.");
+      else
+      alert("Hola");
     }
 
   function validarNombreApellido(){
@@ -147,31 +148,35 @@ function validarFormulario() {
 
 
   function validarTarjeta(){
-    let tarjeta=document.getElementById("tarjeta").value;    
-    let cvv=document.getElementById("cvv");
-    let esValido = false;
-
+    let tarjeta=document.getElementById("tarjeta").value;
+    let tipo = document.getElementById("tipo").value;
+    let esValido = true;
+    console.log("Hola");
     try {
         if(tarjeta!== "")
         {
             for(let card in objeto)
-            {   
-                let tipo=objeto[card];
-
-                if(tipo.test(tarjeta))
+            {
+                let patron=objeto[card];
+                console.log(card);
+                if(patron.test(tarjeta) && tipo===card)
                 {
-                    valida=true;
-                    console.log("Esta tarjeta es una "+tarjeta);
-                    document.getElementById(tarjeta).checked=true;
+                    alert("Datos de la tarjeta introducidos correctamente.");
+                    return true;
+                }
+                else
+                {
+                  esValido = false;
                 }
             }
-
-            if(valida==false)
-            throw new Error("Ese número de tarjeta no es valido");
-
+            if(esValido = false)
+            {
+              alert("Por favor, revisa los datos de la tarjeta.");
+              return false;
+            }
         }
         else throw new Error("Por favor introduce un número de tarjeta");
     } catch (error) {
-        document.getElementById("carderror").innerHTML+=error.message;
+        alert("Por favor revisa los datos de la tarjeta");
     }
 }

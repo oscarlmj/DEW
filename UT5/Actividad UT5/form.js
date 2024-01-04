@@ -32,8 +32,6 @@ function validarFormulario() {
       // Puedes enviar el formulario o realizar otras acciones aquí
       if(validarEdad() && validarExpediente() && validarFecha && validarNombreApellido() && validarImporte() && validarAño() && validarMes() && validarTarjeta())
         alert("Formulario válido. Puedes realizar alguna acción aquí.");
-      else
-      alert("Hola");
     }
 
   function validarNombreApellido(){
@@ -158,7 +156,6 @@ function validarFormulario() {
             for(let card in objeto)
             {
                 let patron=objeto[card];
-                console.log(card);
                 if(patron.test(tarjeta) && tipo===card)
                 {
                     alert("Datos de la tarjeta introducidos correctamente.");
@@ -169,7 +166,7 @@ function validarFormulario() {
                   esValido = false;
                 }
             }
-            if(esValido = false)
+            if(esValido == false)
             {
               alert("Por favor, revisa los datos de la tarjeta.");
               return false;

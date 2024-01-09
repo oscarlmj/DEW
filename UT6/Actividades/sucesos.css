@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.boton:hover {
+    background-color: orchid;
+}
+
+.boton:active {
+    background-color: skyblue;
+}
+
+.boton.rojo {
+    background-color: red;
+    color: white;
+}

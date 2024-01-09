@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="listas.css">
-    <script src="listas.js"></script>
-    <title>Listas de varios niveles</title>
+    <title>Selector de opciones</title>
 </head>
 <body>
-    <label for="seleccionada">Servicios del videoclub</label>
-    <select name="seleccionada" id="seleccionada" onchange="cambiarOpciones()">
-        <option value="video">Videos</option>
-        <option value="discos" selected>Discos</option>
+
+    <label for="categorias">Seleccione una categoría:
+    <select id="categorias">
+        <option value="video">Vídeo</option>
+        <option value="discos">Discos</option>
         <option value="juegos">Juegos</option>
     </select>
-    <label for="opciones" id="textOpt">Género del disco</label>
-    <select name="opciones" id="opciones">
-        <option value="humor">Humor</option>
-        <option value="drama">Drama</option>
-        <option value="ficcion">Ficcion</option>
-        <option value="otros">Otros</option>
+</label>
+
+    <label for="subcategorias">Seleccione una subcategoría:
+    <select id="subcategorias">
+        <!-- Las opciones se llenarán dinámicamente mediante JavaScript -->
     </select>
-    <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+</label>
+
+    <textarea id="resultado" rows="4" cols="50" readonly></textarea>
+
+    <script src="listas.js"></script>
 </body>
 </html>

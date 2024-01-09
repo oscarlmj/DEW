@@ -6,30 +6,22 @@ const objeto= {
 }
 
 function validarFormulario() {
-    // Obtener todos los elementos de formulario
-    var form = document.getElementById("formularioMatricula");
-    var elementos = form.elements;
+    let form = document.getElementById("formularioMatricula");
+    let elementos = form.elements;
   
-    // Bandera para verificar la validez
-    var esValido = true;
+    let esValido = true;
   
-    // Recorrer todos los elementos de formulario
     for (var i = 0; i < elementos.length; i++) {
-      // Verificar solo los campos de texto
       if (elementos[i].type === "text") {
-        // Verificar si el campo está vacío
         if (elementos[i].value.trim() === "") {
           alert("Por favor, complete todos los campos.");
           esValido = false;
-          break; // Puedes quitar este break si deseas verificar todos los campos en lugar de detenerse en el primero vacío
+          break;
         }
-        // Puedes agregar más lógica de validación según tus requisitos
       }
     }
   
-    // Si todos los campos son válidos, realizar alguna acción
     if (esValido)
-      // Puedes enviar el formulario o realizar otras acciones aquí
       if(validarEdad() && validarExpediente() && validarFecha && validarNombreApellido() && validarImporte() && validarAño() && validarMes() && validarTarjeta())
         alert("Formulario válido. Puedes realizar alguna acción aquí.");
     }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario completo</title>
+    <link rel="stylesheet" href="form2.css">
+    <script src="formulario.js"></script>
+<body>
+    <div class="formulario-envio">
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" required>
+    
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" required>
+    
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" name="correo" id="correo" required>
+    
+                <label for="sexo">Sexo</label>
+                <input type="radio" name="sexo" value="hombre">Hombre
+                <input type="radio" name="sexo" value="mujer">Mujer 
+            </fieldset>
+    
+            <fieldset>
+                <legend>Información</legend>
+                <label for="opcion">Como quiere que le llegue la información: </label>
+                <select id="opcion" required>
+                    <option value="azar">Al azar</option>
+                    <option value="url">Le indicaron la URL de la página</option>
+                    <option value="buscador" selected>A través de un buscador</option>
+                    <option value="enlace">Mediante un enlace desde otra página</option>
+                </select>
+                <label for="informacion-extra">Información extra: </label>
+                <label>
+                    <input type="checkbox" id="cbox1" value="material-audiovisual" /> 
+                    Material audiovisual
+                </label>
+                <label>
+                    <input type="checkbox" id="cbox2" value="textos-electronicos" /> 
+                    Textos electrónicos
+                </label>
+                <label>
+                    <input type="checkbox" id="cbox3" value="libros-texto" /> 
+                    Libros de texto
+                </label>
+            </fieldset>
+       </form>
+    </div>
+    <div class="informacion-pantalla">
+        <h2>EDITORIAL CICLOS F.P</h2>
+        <div id="mostrar-resultado"></div>
+
+        <button onclick="agregarDatos()">AÑADIR</button>
+        <button onclick="visualizarDatos()">VISUALIZAR DATOS</button>
+        <button onclick="eliminarSeleccion()">ELIMINAR</button>
+    </div>
+</body>
+</html>

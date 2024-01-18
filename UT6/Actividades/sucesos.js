@@ -28,7 +28,7 @@ contenedor.addEventListener("dblclick", function (event) {
         // Obtener el label asociado
         var labelFor = target.getAttribute("id");
         var label = document.querySelector(`label[for="${labelFor}"]`);
-
+        textarea.value = label.innerText;
         // Cambiar el color de fondo del label asociado a coral
         if (label) {
             label.style.backgroundColor = "coral";

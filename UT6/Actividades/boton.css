@@ -4,9 +4,14 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: moccasin;
 }
 
 button {
     position: relative;
     transition: transform 0.3s ease; /* Agregamos una transición para suavizar el movimiento */
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: cadetblue;
 }

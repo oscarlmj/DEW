@@ -1,0 +1,126 @@
+section h1 {
+  justify-items: center;
+  font-family: 'Averta', sans-serif;
+  padding: 10px;
+  width: fit-content;
+}
+
+section .center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: fit-content;
+}
+
+section .grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Cambiado a una sola columna en pantallas pequeñas */
+  grid-gap: 10px;
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 10px;
+}
+
+section .grid-item {
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section .movable-item {
+    transition: transform 0.5s; /* Para animar el movimiento */
+}
+
+section p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  section .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+section{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgb(0, 145, 212);
+  overflow: hidden;
+  align-items: center;
+}
+
+section .air{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+  background-size: 1000px 100px
+}
+
+section .air.air1{
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+section .air.air2{
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+section .air.air3{
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+section .air.air4{
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes wave{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: 1000px; 
+  }
+}
+
+@keyframes wave2{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: -1000px; 
+  }
+}

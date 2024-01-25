@@ -5,6 +5,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: azure;
 }
 
 label, select {
@@ -14,4 +15,7 @@ label, select {
 
 textarea{
     width: 20%;
+}
+textarea{
+    border: none;
 }

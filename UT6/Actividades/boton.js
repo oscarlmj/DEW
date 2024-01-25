@@ -18,8 +18,6 @@ function moverBoton() {
     boton.style.transform = `translate(${nuevaPosX}px, ${nuevaPosY}px)`;
 }
 
-
-
 function pillado()
 {
     alert("Me has pillado uwu")

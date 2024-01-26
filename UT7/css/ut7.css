@@ -1,0 +1,83 @@
+#ventana,
+#botones,
+#btnReiniciar,
+#btnEscribir,
+#btnNombres {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    text-align: center;
+}
+
+#contenedor-superior {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#imagenContainer {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 100vh; /* Ajusta el ancho máximo según tus necesidades */
+    margin: auto;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Ajusta la altura según tus necesidades */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: gainsboro;
+}
+
+.grid-item img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 4px;
+}
+
+.center {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+}

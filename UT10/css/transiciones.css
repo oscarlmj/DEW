@@ -1,0 +1,44 @@
+/* transiciones.css */
+
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #343a40;
+  color: #fff;
+}
+.contenedor {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#imagen {
+  max-width: 100%;
+  height: auto;
+  transition: transform 1s ease-in-out;
+
+}
+
+.invertido {
+  transform: scaleX(-1);
+}
+
+.botones {
+  margin-top: 20px; /* Mayor separación entre botones y la imagen */
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #2196F3; /* Azul */
+  color: #fff; /* Blanco */
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1565c0; /* Azul oscuro al pasar el ratón */
+}

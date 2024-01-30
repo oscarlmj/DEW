@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/colecciones.css">
+  <title>Marquesina con Efecto de Producto</title>
+</head>
+<body>
+  <div id="marquesina" class="marquee">Queremos que compre</div>
+  <div id="productos" >
+    <div id="productoA" class="producto">Producto A</div>
+    <div id="productoB" class="producto" onmouseover="mostrarTexto('Producto B', 'Este producto es de la mejor calidad');" onclick="seleccionarProducto('Producto B')">Producto B</div>
+    <div id="productoC" class="producto" onmouseover="mostrarTexto('Producto C', 'Este producto es barato, barato, barato');" onclick="seleccionarProducto('Producto C')">Producto C</div>
+  </div>
+  <script src="../js/marquesina.js"></script>
+</body>
+</html>

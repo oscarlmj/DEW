@@ -1,0 +1,35 @@
+.hoverable {
+    cursor: pointer;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.primaria-container, .secundaria-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.image-container{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+img {
+    width: 250px;
+}
+
+header {
+    text-align: center;
+    background-color: #343a40;
+    color: #fff;
+    margin-bottom: 20px;
+}

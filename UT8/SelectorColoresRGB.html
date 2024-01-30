@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Colores RGB</title>
+    <script>
+        function cambiarColor() {
+            // Obtener los valores de rojo, verde y azul
+            var rojo = parseInt(document.getElementById("rojoInput").value, 10);
+            var verde = parseInt(document.getElementById("verdeInput").value, 10);
+            var azul = parseInt(document.getElementById("azulInput").value, 10);
+
+            // Obtener el atributo seleccionado
+            var atributo = document.getElementById("atributoSelect").value;
+
+            // Enviar un mensaje al otro HTML
+            window.opener.cambiarColor(atributo, rojo, verde, azul);
+        }
+    </script>
+</head>
+<body>
+
+    <label for="atributoSelect">Selecciona un atributo:</label>
+    <select id="atributoSelect">
+        <option value="bgColor">bgColor</option>
+        <option value="linkColor">linkColor</option>
+        <option value="aLinkColor">aLinkColor</option>
+        <option value="vLinkColor">vLinkColor</option>
+    </select>
+
+    <br>
+
+    <label for="rojoInput">Rojo:</label>
+    <input type="text" id="rojoInput" placeholder="0-255">
+
+    <label for="verdeInput">Verde:</label>
+    <input type="text" id="verdeInput" placeholder="0-255">
+
+    <label for="azulInput">Azul:</label>
+    <input type="text" id="azulInput" placeholder="0-255">
+
+    <br>
+
+    <button onclick="cambiarColor()">Cambiar Color</button>
+
+</body>
+</html>

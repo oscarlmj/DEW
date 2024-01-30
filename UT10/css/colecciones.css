@@ -1,0 +1,57 @@
+/* estilos.css */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #2196F3; /* Azul */
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #343a40;
+  color: #fff;
+}
+@keyframes marqueeAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 60%;
+  color: #fff; /* Blanco */
+  font-size: 24px; /* Tamaño de fuente más grande */
+  text-align: center; /* Centro del texto */
+  margin: 0 auto; /* Centrar horizontalmente */
+  padding: 10px; /* Añadir espacio alrededor del texto */
+  animation: marqueeAnimation 8s linear infinite;
+}
+
+.producto {
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px; /* Añadir espacio alrededor de los botones */
+  border: none; /* Eliminar el borde */
+  background-color: #2196F3; /* Azul */
+  color: #fff; /* Blanco */
+  display: inline-block;
+  font-size: 16px; /* Tamaño de fuente más pequeño */
+  text-transform: uppercase; /* Convertir texto a mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.producto:hover {
+  background-color: #1565c0; /* Azul oscuro al pasar el ratón */
+  color: #fff; /* Blanco al pasar el ratón */
+}

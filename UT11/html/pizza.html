@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/pizza.css">
+    <script src="../js/pizza.js"></script>
+    <title>Preparar Pizza</title>
+</head>
+<body>
+    <div class="container">
+        <div id="ingredientes">
+            <h2>Toppings</h2>
+            <label>
+                <input type="checkbox" name="toppings" id="cebolla" value="Cebolla">
+                Cebolla caramelizada
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="queso" value="QuQeso">
+                Queso de cabra
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="pepperoni" value="Pepperoni">
+                Pepperoni
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="bacon" value="Bacon">
+                Bacon
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="piña" value="Piña">
+                Piña
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="aceitunas" value="Aceitunas">
+                Aceitunas
+            </label>
+            <label>
+                <input type="checkbox" name="toppings" id="serrano" value="Serrano">
+                Serrano
+            </label>
+        </div>
+        <div id="masa">
+            <h2>Tipo de Masa</h2>
+            <label>
+                <input type="radio" name="masa" id="normal" value="Normal">
+                Normal
+            </label>
+            <label>
+                <input type="radio" name="masa" id="fina" value="Fina">
+                Fina
+            </label>
+            <label>
+                <input type="radio" name="masa" id="gruesa" value="Gruesa">
+                Gruesa
+            </label>
+            <label>
+                <input type="radio" name="masa" id="rellena" value="Rellena">
+                Rellena
+                <select id="rellenaOptions" style="display: none;">
+                    <option value="BBQ">BBQ</option>
+                    <option value="Queso Parmesano">Queso Parmesano</option>
+                    <option value="Queso de cabra">Queso de cabra</option>
+                </select>
+            </label>
+        </div>
+        <div id="pedido">
+
+            <div id="pizza">
+            </div>
+
+            <div id="tipoMasa">
+            </div>
+            <button onclick="pedido()">Preparar pizza</button>
+        </div>
+    </div>
+</body>
+</html>

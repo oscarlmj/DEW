@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="manolito">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/coloresRGB.js"></script>
     <title>Colores RGB</title>
 </head>
-<body>
-    <a href="#" onclick="abrirSelectorColores();">Abrir Selector de Colores</a>
+
+<body id="main">
+    <a href="#" onclick="window.open('./SelectorColoresRGB.html')">Cambiar los colores de esta ventana</a><br>
+    <a href="">Vinculo visitado</a><br>
+    <a href="">Vinculo sin visitar</a><br>
+
+    <script>
+        addEventListener('storage', function (e) {
+            let color = localStorage.getItem('color');
+            let opcion = localStorage.getItem('opcion');
+            let enlaces = document.querySelectorAll('a:link');
+
+            if (color && opcion === 'bgColor') {
+                document.getElementById('main').style.backgroundColor = color;
+            }
+            else if (color && opcion === 'linkColor') {
+                enlaces.forEach(enlace => {
+                    enlace.style.color = color;
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>

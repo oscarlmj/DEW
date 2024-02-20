@@ -18,13 +18,17 @@ export class GithubService {
 
   getUser(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `token ${this.token}`);
-    return this._http.get(`https://api.github.com/users/${this.username}`, { headers })
+    return this._http.get(`https://api.github.com/users/${this.username}+?client_id=${this.client_id}&client_secret=${this.client_secret}`)
       .pipe(map((res: any) => res));
   }
 
   getRepos(): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `token ${this.token}`);
-    return this._http.get(`https://api.github.com/users/${this.username}/repos`, { headers })
+    return this._http.get(`https://api.github.com/users/${this.username}/repos`+`?client_id=${this.client_id}&client_secret=${this.client_secret}`)
       .pipe(map((res: any) => res));
+  }
+
+  updateUser(username: string) {
+    this.username = username;
   }
 }

@@ -30,6 +30,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GithubService {
+  private username: string;
   private url = 'https://api.github.com/user';
   private token = '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';
 

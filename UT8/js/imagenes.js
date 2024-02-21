@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let primaria = document.getElementById('primaria');
     let secundaria = document.getElementById('secundaria');
     let secundariaInferior = document.getElementById('secundaria-inferior');
-let primariaInferior = document.getElementById('primaria-inferior');
+    let primariaInferior = document.getElementById('primaria-inferior');
 
     primaria.addEventListener('mouseover', function() {
         primaria.src = './img/secun-dir.gif';

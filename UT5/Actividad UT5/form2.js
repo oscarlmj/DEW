@@ -8,8 +8,9 @@ function agregarDatos() {
   let opcion = document.getElementById('opcion').value;
   let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   
+  if( && nombre && email && sexo && opcion && checkboxes)
   if (!emailValido(email) || !sexo) {
-    alert('¡Ups! Parece que olvidaste completar algunos campos.');
+    alert('Por favor comprueba el correo.');
   } else {
     const infoExtra = [];
     for (let i = 0; i < checkboxes.length; i++) {
@@ -45,7 +46,7 @@ function visualizarDatos() {
       mensaje += 'Información Extra: ' + dato.infoExtra.join(', ') + '\n\n';
     }
     alert(mensaje);
-    document.getElementById("mostrar-resultado").innerHTML = mensaje;
+    document.getElementById("mostrar-resultado").innerHTML = mensaje + '\n';
   } else {
     alert('No hay datos para visualizar.');
   }
